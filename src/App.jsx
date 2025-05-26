@@ -1,6 +1,10 @@
+import { Todo } from "./components/Todo";
+
 const App = () => {
   return(<>
-    <h1 className="text-3xl font-bold underline">This is App components</h1>
+    <div className="container">
+      <Todo/>
+    </div>
   </>)
 };
 export default App;
