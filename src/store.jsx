@@ -27,7 +27,7 @@ const taskReducer = (state = initialState, action) => {
 };
 
 // Create the Redux store
-const store = createStore(taskReducer);
+export const store = createStore(taskReducer);
 console.log(store);
 
 // How to  Log in the initial state
@@ -49,12 +49,10 @@ export const deleteTask = (index) => {
 store.dispatch(addTask("My name is Muhammad Rabbi"));
 console.log("upDated state:", store.getState());
 
-store.dispatch(addTask("I am a React Developer" ) );
+store.dispatch(addTask("I am a React Developer"));
 console.log("upDated state:", store.getState());
 
 // How to Dispatch an action to delete task
 // store.dispatch({ type: DELETE_TASK, payload: 1 }); // or using action creator
 store.dispatch(deleteTask(1));
 console.log("upDated state:", store.getState());
-
-
