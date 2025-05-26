@@ -47,6 +47,9 @@ export const deleteTask = (index) => {
 
 // store.dispatch({ type: ADD_TASK, payload: "My name is Muhammad Rabbi" }); // or using action creator
 store.dispatch(addTask("My name is Muhammad Rabbi"));
+store.dispatch(addTask("I know React Redux"));
+store.dispatch(addTask("I know React Router"));
+store.dispatch(addTask("I know React Query"));
 console.log("upDated state:", store.getState());
 
 store.dispatch(addTask("I am a React Developer"));
