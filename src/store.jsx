@@ -1,6 +1,7 @@
-import { applyMiddleware, createStore } from "redux";
-import { composeWithDevTools } from "@redux-devtools/extension";
-import { thunk } from "redux-thunk";
+// import { applyMiddleware, createStore } from "redux";
+// import { composeWithDevTools } from "@redux-devtools/extension";
+// import { thunk } from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
 
 // Define action types: stateDomain and the event
 const ADD_TASK = "task/add";
@@ -35,15 +36,24 @@ const taskReducer = (state = initialState, action) => {
   }
 };
 
-// Create the Redux store
-export const store = createStore(
-  taskReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
-console.log(store);
+// (Old style) Create the Redux store
+// export const store = createStore(
+//   taskReducer,
+//   composeWithDevTools(applyMiddleware(thunk))
+// );
+// console.log(store);
+ 
+// New style using Redux Toolkit
+
+  export const store = configureStore({
+  reducer:{
+    taskReducer,
+  }
+})
+
 
 // How to  Log in the initial state
-console.log("Initial state:", store.getState());
+// console.log("Initial state:", store.getState());
 
 // Create action creators for add task
 export const addTask = (task) => {
@@ -62,15 +72,15 @@ store.dispatch(addTask("My name is Muhammad Rabbi"));
 store.dispatch(addTask("I know React Redux"));
 store.dispatch(addTask("I know React Router"));
 store.dispatch(addTask("I know React Query"));
-console.log("upDated state:", store.getState());
+// console.log("upDated state:", store.getState());
 
 store.dispatch(addTask("I am a React Developer"));
-console.log("upDated state:", store.getState());
+// console.log("upDated state:", store.getState());
 
 // How to Dispatch an action to delete task
 // store.dispatch({ type: DELETE_TASK, payload: 1 }); // or using action creator
 store.dispatch(deleteTask(1));
-console.log("upDated state:", store.getState());
+// console.log("upDated state:", store.getState());
 
 export const fetchTask = () => {
   return async (dispatch) => {

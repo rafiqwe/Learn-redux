@@ -4,7 +4,7 @@ import { addTask, deleteTask, fetchTask } from "../store";
 
 export const Todo = () => {
   const [task, setTask] = useState("");
-  const state = useSelector((state) => state.task);
+  const state = useSelector((state) => state.taskReducer.task);
   // console.log(state);
   const dispatch = useDispatch();
 
@@ -69,7 +69,7 @@ export const Todo = () => {
                 className="flex justify-between items-center   bg-white p-3 mb-2 rounded-lg"
               >
                 <div className="text flex  justify-center items-start gap-1 sm:gap-2">
-                  <p className="text-black font-bold">ID: {index + 1} </p>
+                  <p className="text-black font-bold">{index + 1} </p>
                   <h1 className="text-md font-bold text-black">{task}</h1>
                 </div>
                 <div className="delete_icon">
